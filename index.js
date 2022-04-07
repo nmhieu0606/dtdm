@@ -1,7 +1,8 @@
 var app=require('express')();
 var mongoose=require('mongoose');
 var bodyParser=require('body-parser');
-var uri='mongodb+srv://admin:admin@trangtin.gsbgr.mongodb.net/trangtin'
+var uri='mongodb+srv://admin:admin@trangtin.gsbgr.mongodb.net/trangtin';
+
 mongoose.connect(uri,{
   keepAlive:true,
   keepAliveInitialDelay:300000,
@@ -14,6 +15,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.get('/',(req,res)=>{
   res.render('index',{title:'Trang chủ'});
+});
+app.get('/login',(req,res)=>{
+  res.render('login',{title:'Đăng nhập'});
 });
 
 app.listen(30000,()=>{
